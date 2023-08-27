@@ -2,6 +2,7 @@
 import './style.css';
 import { Car, AbsBrake, Brake } from './statery-pattern';
 import { Subject, Observer } from './observor-pattern';
+import { Expresso, Mocha, Soya } from './decorator-pattern';
 
 // Write TypeScript code!
 const appDiv: HTMLElement = document.getElementById('app');
@@ -50,3 +51,15 @@ let partOrganiser = new PartyOrganiser();
 partOrganiser.registerObservor(new HotelTurkey());
 partOrganiser.registerObservor(new HotelBudapest());
 partOrganiser.notifyAll('We will live stream event at 7pm');
+
+// Decorator Pattern
+let beverage = new Expresso();
+console.log(beverage.cost());
+console.log(beverage.getDescription());
+beverage = new Mocha(beverage);
+console.log(beverage.cost());
+console.log(beverage.getDescription());
+// soya
+beverage = new Soya(beverage);
+console.log(beverage.cost());
+console.log(beverage.getDescription());
